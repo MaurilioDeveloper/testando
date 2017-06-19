@@ -1,0 +1,64 @@
+import { UserService } from './../userService.interface';
+import { ServiceStructure } from './../serviceStructure.interface';
+
+import { AppService } from './../../app.service';
+import { FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+    selector: 'services-mandatory',
+    templateUrl: './app/services/mandatory/mandatory.component.html'
+})
+export class MandatoryComponent implements OnInit {
+
+    result: boolean;
+    user:UserService;
+    structureSelect;
+
+    listStructure : Object[] = [{structureId: null, description: 'Selecione uma Concessionária...'}];
+    listService : Object[];
+
+    constructor(private appService: AppService) { }
+
+    ngOnInit() {
+        let userSession = this.appService.getSessionUser();
+        this.user = { userId: userSession.userId, regionalView: userSession.isRegionalView };
+        this.loadStructure();
+    }
+
+    loadStructure(){
+        let observable = this.appService.xSearchWithData('structureService/questDealershipByUser', this.user );
+        observable.subscribe(
+            (data) => {
+               let response = data.json();
+               this.listStructure.push(...response.listStructure);
+            },
+            err => {
+               console.log(err.json());
+            }
+       );
+    }
+
+    consult(){
+        let observable = this.appService.xSearch('serviceService/questServiceStructure', this.structureSelect);
+        observable.subscribe(
+            (data) => {
+               let response = data.json();
+               if(response.listService != undefined){
+                    this.listService = response.listService;
+                    this.result = true;
+               }
+            },
+            err => {
+               console.log(err.json());
+            }
+       );
+    }
+
+    save(){
+        let requestService : ServiceStructure = {listServiceStructure: this.listService};
+        let observable =this.appService.xPost('serviceStructureService/updateServiceRequered', requestService); 
+       
+        observable.subscribe();
+    }
+};

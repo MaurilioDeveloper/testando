@@ -1,0 +1,223 @@
+<div *ngIf="simulation.client" fxFlex.gt-sm="90%">
+    <form #fff="ngForm">
+        <h4 class="black-color">{{'new-ones' | translate}}</h4>
+        <hr class="color-border-default" />
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                <span><b class="black-color">Escolha a marca de um seminovo</b></span>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none">
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-select ngControl fxFlex.gt-sm="60%" fxFlex.gt-xs="100%" placeholder="{{'brands' | translate}}" [(ngModel)]="simulation.car"
+                    name="brand" #name="ngModel" required>
+                    <md-option *ngFor="let brand of brands" [value]="brand.value">{{brand.viewValue}}</md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                <span><b class="black-color">Escolha um modelo</b></span>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none">
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-select ngControl fxFlex.gt-sm="60%" fxFlex.gt-xs="100%" placeholder="{{'model' | translate}}" [(ngModel)]="simulation.car"
+                    name="model" #name="ngModel" required>
+                    <md-option *ngFor="let model of models" [value]="model.value">{{model.viewValue}}</md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                <span><b class="black-color">Escolha a versão</b></span>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none">
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-select ngControl fxFlex.gt-sm="60%" fxFlex.gt-xs="100%" placeholder="Versão" [(ngModel)]="simulation.car" name="model"
+                    #name="ngModel" required>
+                    <md-option *ngFor="let model of models" [value]="model.value">{{model.viewValue}}</md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                <span><b class="black-color">Escolha o ano de modelo</b></span>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none">
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-select ngControl fxFlex.gt-sm="60%" fxFlex.gt-xs="100%" placeholder="Ano do modelo" [(ngModel)]="simulation.car" name="model"
+                    #name="ngModel" required>
+                    <md-option *ngFor="let model of models" [value]="model.value">{{model.viewValue}}</md-option>
+                </md-select>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                <span><b class="black-color">Ano de Fabricação</b></span>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="60%">
+                    <!--<input mdInput ngControl placeholder="CPF or CNPJ" type="text" [(ngModel)]="simulation.client.cpf"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" (ngModelChange)="handelInput($event)"    #name="ngModel" name="cpf"-->
+                    <input mdInput ngControl placeholder="Ano de Fabricação" type="text" [(ngModel)]="simulation.client.cpf" #name="ngModel"
+                        name="fabricationYear" />
+                    <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                </md-input-container>
+            </div>
+
+        </div>
+
+
+        <div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                <span><b class="black-color">Preço base</b></span>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="60%">
+                    <!--<input mdInput ngControl placeholder="CPF or CNPJ" type="text" [(ngModel)]="simulation.client.cpf"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" (ngModelChange)="handelInput($event)"    #name="ngModel" name="cpf"-->
+                    <input mdInput ngControl placeholder="Preço base" type="text" [(ngModel)]="simulation.client.cpf" #name="ngModel" name="fabricationYear"
+                    />
+                    <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                </md-input-container>
+            </div>
+
+        </div>
+
+
+        <!--<div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                <span><b class="black-color">Pagar a taxa de Avaliação do Bem á vista?</b></span>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-radio-group [(ngModel)]="simulation.saleType.description" name="saleType" #name="ngModel" fxLayoutGap="5%" required>
+                    <md-radio-button ngControl ngDefaultControl [value]="1">Sim</md-radio-button>
+                    <md-radio-button ngControl ngDefaultControl [value]="2">Não</md-radio-button>
+                </md-radio-group>
+            </div>
+        </div> -->
+
+        <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none" fxLayoutWrap>
+            <div class="space-component" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                <span><b class="black-color">Acessórios</b></span>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+
+
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="4%" *ngFor="let acessorio of acessorios">
+                <!--<div #clone>-->
+                <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="28%">
+                    <!--<input mdInput ngControl placeholder="CPF or CNPJ" type="text" [(ngModel)]="simulation.client.cpf"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" (ngModelChange)="handelInput($event)"    #name="ngModel" name="cpf"-->
+                    <input mdInput ngControl placeholder="Acessório" type="text" [(ngModel)]="acessorio.description" #name="ngModel" name="fabricationYear"
+                    />
+                    <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                </md-input-container>
+                <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="28%">
+                    <!--<input mdInput ngControl placeholder="CPF or CNPJ" type="text" [(ngModel)]="simulation.client.cpf"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" (ngModelChange)="handelInput($event)"    #name="ngModel" name="cpf"-->
+                    <input mdInput ngControl placeholder="Valor" type="text"  [(ngModel)]="acessorio.value" #name="ngModel" brlformater name="value"
+                    />
+                    <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                </md-input-container>
+
+
+                <button (click)="limpar(acessorio)" *ngIf="acessorios.lenght == 0" md-mini-fab color="primary">
+                    <md-icon class="white-text">remove</md-icon>
+                </button>
+
+                <div fxLayoutAlign="end none" fxFlex.sm="100%" fxFlex.gt-sm="3%">
+                    <button (click)="addAcessorio()" md-mini-fab color="primary" [disabled]="!accessory">
+                        <md-icon class="white-text">add</md-icon>
+                    </button>
+                    <!--<button md-raised-button color="primary"><i class="fa fa-plus"></i></button>-->
+                </div>
+                <div fxLayoutAlign="end none" fxFlex.sm="100%" fxFlex.gt-sm="2%">
+                    <button (click)="delAcessorio(acessorio)" *ngIf="acessorios.length >= 2" md-mini-fab color="primary">
+                    <!--<md-icon class="white-text">remove</md-icon>-->
+                    <i class="fa fa-trash"></i>
+                </button>
+                </div>
+
+                <!--</div>-->
+                <!--<div [innerHtml]="htmlText"></div>-->
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+            <div class="space-component" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="4%">
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="30%">
+                    <span><b class="black-color">Subtotal de Acessórios</b></span>
+                </div>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="27%">
+                    <span><b class="black-color">Preço base</b></span>
+                </div>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="25%">
+                    <span><b class="black-color">Total</b></span>
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row" class="space-component" fxLayoutAlign="start none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="4%">
+
+                <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="23%">
+                    <!--<input mdInput ngControl placeholder="CPF or CNPJ" type="text" [(ngModel)]="simulation.client.cpf"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" (ngModelChange)="handelInput($event)"    #name="ngModel" name="cpf"-->
+                    <input mdInput ngControl placeholder="Subtotal de Acessórios" type="text" [(ngModel)]="simulation.client.cpf" #name="ngModel"
+                        name="fabricationYear" />
+                    <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                </md-input-container>
+                <div fxLayoutAlign="end none" fxFlex.sm="100%" fxFlex.gt-sm="3%">
+                    <button md-mini-fab color="primary" [ngStyle]="{'cursor': 'initial'}" disabled>
+                        <md-icon class="white-text">add</md-icon>
+                    </button>
+                    <!--<button md-raised-button color="primary"><i class="fa fa-plus"></i></button>-->
+                </div>
+                <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="20%">
+                    <!--<input mdInput ngControl placeholder="CPF or CNPJ" type="text" [(ngModel)]="simulation.client.cpf"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" (ngModelChange)="handelInput($event)"    #name="ngModel" name="cpf"-->
+                    <input mdInput ngControl maskmoney placeholder="Preço base" type="text" [(ngModel)]="simulation.client.cpf" #name="ngModel" name="fabricationYear"
+                    />
+                    <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                </md-input-container>
+                <div fxLayoutAlign="end none" fxFlex.sm="100%" fxFlex.gt-sm="3%">
+                    <button md-mini-fab color="primary" [ngStyle]="{'cursor': 'initial'}" disabled>
+                        =
+                    </button>
+                    <!--<button md-raised-button color="primary"><i class="fa fa-plus"></i></button>-->
+                </div>
+                <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="22%">
+                    <!--<input mdInput ngControl placeholder="CPF or CNPJ" type="text" [(ngModel)]="simulation.client.cpf"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" (ngModelChange)="handelInput($event)"    #name="ngModel" name="cpf"-->
+                    <input mdInput ngControl placeholder="Total" type="text" [(ngModel)]="simulation.client.cpf" #name="ngModel" name="fabricationYear"
+                    />
+                    <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                </md-input-container>
+            </div>
+        </div>
+
+
+
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="end none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxLayoutAlign="end none" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <button md-raised-button color="primary" [disabled]="!fff.form.valid">{{'simulate' | translate}}</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,25 @@
+<div *ngIf="simulation.client">
+
+    <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around stretch" class="space-component padding20"
+    [style.xs]="{'padding-left': '5px','padding-right':'5px'}">
+        <div fxFlex.xs="100%" fxFlex.sm="45%" fxFlex.gt-sm="32%">
+            <b class="fontblack">Nome Cliente</b> <br>{{simulation.client.name}}
+        </div>
+
+        <div fxFlex.xs="100%" fxFlex.sm="45%" fxFlex.gt-sm="32%"   >
+            <b class="fontblack">Cpf/Cnpj:</b> <br>{{simulation.client.cpf}}
+        </div>
+        <div fxFlex.xs="100%" fxFlex.sm="45%" fxFlex.gt-sm="32%" >
+            <b class="fontblack">Nome Cliente:</b> <br>{{simulation.client.name}}
+        </div>
+        <div fxFlex.xs="100%" fxFlex.sm="45%" fxFlex.gt-sm="32%" >
+            <b class="fontblack">Telefone:</b> <br>{{simulation.client.telephone}}
+        </div>
+        <div fxFlex.xs="100%" fxFlex.sm="45%" fxFlex.gt-sm="32%" *ngIf="simulation.client.state">
+            <b class="fontblack">Estado:</b> <br>{{simulation.client.state.description}}
+        </div>
+        <div fxFlex.xs="100%" fxFlex.sm="45%" fxFlex.gt-sm="32%" >
+            <b class="fontblack" (click)="openDialog()">CLIENTE COM INSENÇÃO DE TC <i class="material-icons miniicon">help</i></b> <br>{{(simulation.tc?'Isento':'Não isento')}}
+        </div>
+    </div>
+</div>

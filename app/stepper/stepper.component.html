@@ -1,0 +1,64 @@
+<div fxLayout="row">
+        <div class="divButtonBigLeft tinyBreakLine"> 
+            <button md-raised-button color="primary"
+             class="button-radius" 
+             *ngIf="steep!=0" 
+             (click)="change(false)">
+             <md-icon >{{leftIcon}}</md-icon><br><span [innerHtml]="leftText"></span></button>
+        </div>
+
+        <div fxLayout="row" [ngStyle]="{'padding':'10px'}" [ngStyle.md]="{'font-size': '12px'}">
+            <div fxLayout="column">
+            <label>Cliente</label>
+                <svg height="80"width="100%">
+                    <circle cx="27"cy="47" r="21" stroke="#e6e6e6" stroke-width="2" class="circle-white"/>
+                    <circle cx="27" cy="47" r="19" stroke="#e6e6e6" stroke-width="1" class="color-stepper"/>
+                    <line x1="48" x2="100%" y1="45" y2="45" [ngClass]="steep > 0 ? 'line-stepper' : 'line-default'" />
+                </svg>
+            </div>
+            <div fxLayout="column"> 
+            <label>Veiculo</label>
+                <svg height="80"width="100%">
+                    <circle cx="21"cy="47" r="21" stroke="#e6e6e6" stroke-width="2" class="circle-white"/>
+                    <circle cx="21" cy="47" r="19" stroke="#e6e6e6" stroke-width="1" [ngClass]="steep > 0 ? 'color-stepper' : 'circle-white'"/>
+                    
+                    <line x1="42" x2="100%" y1="45" y2="45" [ngClass]="steep > 1 ? 'line-stepper' : 'line-default'" />
+                </svg>
+            </div>
+            <div fxLayout="column">
+                <label [ngStyle.gt-sm]="{'margin-left':'-5%'}">Simulação</label>
+                <svg height="80"width="100%">
+                    <circle cx="21"cy="47" r="21" stroke="#e6e6e6" stroke-width="2" class="circle-white"/>
+                    <circle cx="21" cy="47" r="19" stroke="#e6e6e6" stroke-width="1" [ngClass]="steep > 1 ? 'color-stepper' : 'circle-white'"/>
+                    <line x1="42" x2="100%" y1="45" y2="45" [ngClass]="steep > 2 ? 'line-stepper' : 'line-default'" />
+                </svg>
+            </div>
+            <div fxLayout="column">
+            <label [ngStyle.gt-sm]="{'margin-left':'-15%'}" [ngStyle.sm]="{'margin-top.px':'-20'}" >Ficha do cliente</label>
+                <svg height="80"width="100%">
+                    <circle cx="21"cy="47" r="21" stroke="#e6e6e6" stroke-width="2" class="circle-white"/>
+                    <circle cx="21" cy="47" r="19" stroke="#e6e6e6" stroke-width="1" [ngClass]="steep > 2 ? 'color-stepper' : 'circle-white'"/>
+                    <line x1="42" x2="100%" y1="45" y2="45" [ngClass]="steep > 3 ? 'line-stepper' : 'line-default'" />
+                </svg>
+            </div>
+            <div fxLayout="column">
+                <label [ngStyle.gt-sm]="{'margin-left':'12%'}">Envio</label>
+                <svg height="80"width="55">
+                    <circle cx="21"cy="47" r="21" stroke="#e6e6e6" stroke-width="2" class="circle-white"/>
+                    <circle cx="21" cy="47" r="19" stroke="#e6e6e6" stroke-width="1" [ngClass]="steep > 3 ? 'color-stepper' : 'circle-white'"/>
+                </svg>
+            </div>
+            
+        </div>
+
+        <div class="divButtonBigRight" fxLayoutAlign="end">
+            <button md-raised-button color="primary" class="button-radius" (click)="change(true)">
+                <md-icon>{{rightIcon}}</md-icon>
+                <br>
+                <span [innerHtml]="rightText" class="{{stepFour}}"></span>
+                </button> 
+        </div>
+</div>
+            
+
+

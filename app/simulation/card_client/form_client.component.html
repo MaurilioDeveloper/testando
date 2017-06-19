@@ -1,0 +1,94 @@
+<div *ngIf="simulation.client" fxFlex.gt-sm="90%">
+    <form #ff="ngForm">
+        <h4 class="black-color">{{'custumer-personal-data' | translate}}</h4>
+        <hr class="color-border-default" />
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                <span><b class="black-color">{{'cpf-cnpj' | translate}}</b> ({{'required-field' | translate}})</span>
+            </div>
+        </div>
+        <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none">
+            <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="60%">
+                    <!--<input mdInput ngControl placeholder="CPF or CNPJ" type="text" [(ngModel)]="simulation.client.cpf"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" (ngModelChange)="handelInput($event)"    #name="ngModel" name="cpf"-->
+                    <input mdInput ngControl placeholder="{{'cpf-cnpj' | translate}}" type="text" [(ngModel)]="simulation.client.cpf" omegamask="999.999.999-99" 
+                        #name="ngModel" name="cpf" required/>
+                    <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                </md-input-container>
+               
+            </div>
+            <div fxLayout="row" class="space-component"  fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">{{'client-name' | translate}}</b> ({{'required-field' | translate}})</span>
+                </div>
+            </div>
+            <div class="space-component" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="60%">
+                    <input mdInput ngControl placeholder="{{'client-name' | translate}}" type="text" [(ngModel)]="simulation.client.name" #name="ngModel"
+                        name="name" required/>
+                    <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                </md-input-container>
+            </div>
+        </div>
+        <div class="spaceCard">
+            <h4 class="black-color">{{'contact-information' | translate}}</h4>
+            <hr class="color-border-default" />
+            <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start none" fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">{{'phone-number' | translate}}</b> ({{'required-field' | translate}})</span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="center center">
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                    <md-input-container fxFlex.xs="100%" fxFlex.gt-sm="60%">
+                        <input mdInput ngControl placeholder="{{'phone-number' | translate}}" omegamask="(99)99999-9999" type="text" [(ngModel)]="simulation.client.telephone"
+                            #name="ngModel" name="telephone" required/>
+                        <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                    </md-input-container>
+                </div>
+            </div>
+        </div>
+        <div class="spaceCard">
+            <h4 class="black-color">{{'localization' | translate}}</h4>
+            <hr class="color-border-default" />
+            <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start none" fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">{{'state' | translate}}</b> ({{'required-field' | translate}})</span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none">
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                    <md-select ngControl fxFlex.gt-sm="60%" fxFlex.gt-xs="100%" placeholder="{{'state' | translate}}" name="state" [(ngModel)]="simulation.client.state"
+                        #name="ngModel" required>
+                        <md-option>{{'select-state' | translate}}</md-option>
+                        <md-option *ngFor="let state of states" [value]="state.value">{{state.viewValue}}</md-option>
+                    </md-select>
+                </div>
+            </div>
+        </div>
+        <div class="spaceCard">
+            <h4 class="black-color">{{'simulation-information' | translate}}</h4>
+            <hr class="color-border-default" />
+            <div fxLayout="row" fxLayoutWrap fxLayoutAlign="start none" fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">{{'sale-type' | translate}}</b> ({{'required-field' | translate}})</span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none">
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                    <md-radio-group [(ngModel)]="simulation.saleType.description" name="saleType" #name="ngModel" fxLayoutGap="5%" required>
+                        <md-radio-button ngControl ngDefaultControl [value]="1">Show Room</md-radio-button>
+                        <md-radio-button ngControl ngDefaultControl [value]="2">{{'direct-sale' | translate}}</md-radio-button>
+                        <md-radio-button ngControl ngDefaultControl [value]="3">{{'new-ones' | translate}}</md-radio-button>
+                    </md-radio-group>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutWrap fxLayoutAlign="end none" fxLayoutWrap>
+            <div fxFlex.xs="100%" fxLayoutAlign="end none" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+                <button  (click)="change(true)" [disabled]="!ff.form.valid" md-raised-button
+                    color="primary">{{'choose-vehicle' | translate}}</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,21 @@
+
+<simulationInfo [simulation]="simulation"></simulationInfo>
+<listcars *ngIf="showcar" [cars]=cars [utilitarios]="utilitarios" (carselect)="carselect($event)"></listcars>
+<listversion *ngIf="!showcar" [simulation]="simulation" (versionselect)="versionselect($event)"></listversion>
+<div fxLayout="row" class="space-component" fxLayoutWrap fxLayoutAlign="start none">
+            <div class="centerText" fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.gt-sm="33%">
+   
+                  <button  (click)="change(true)" md-raised-button
+                    color="primary">EDITAR CLIENTE</button>
+            </div>
+            <div class="centerText" fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.gt-sm="33%">
+   
+               <button *ngIf="simulation.car"  (click)="acessorios()" md-raised-button
+                    color="primary">INSERIR OPCIONAIS E ACESSÓRIOS</button>
+            </div>
+            <div  fxFlex.xs="100%" fxFlex.sm="33%" fxFlex.gt-sm="33%" style="text-align: right;">
+   
+                <button  (click)="change(true)" md-raised-button
+                    color="primary">{{'SIMULAÇÃO' | translate }}</button>
+            </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="{{theme}}" fxLayout="row">
+	<div fxFlex.gt-sm="100" fxFlex="100">
+
+		<div *ngIf="isShowHeader() && router!='/login'">
+			<app-menu></app-menu>
+		</div>
+		<div fxLayout="column">
+			<div fxFlex.gt-sm="10" fxFlex="10"></div>
+		</div>
+		<!--<div class="container">-->
+		<!--<div class="row">-->
+		<!--<p>-->
+		<!--Translate with Service: <strong>{{ translatedText }}</strong>-->
+		<!--</p>-->
+		<!--</div>-->
+		<!--</div>-->
+		<!--<div class="column">-->
+			<!--<div fxFlex.gt-sm="100" fxFlex="100" [ngStyle.xs]="{'margin-top.px': 20}">-->
+				<!--<div fxLayout="column"  fxFlex.gt-sm="93" fxFlex="80" fxLayoutGap="20px">-->
+				<!--<label fxHide [fxHide.gt-sm]="false">Escolha sua concessionária:</label>-->
+				<!--<md-select id="thema" name="thema" [(ngModel)]="selectedThema" (change)="changeTheme($event)" placeholder="Selecione">-->
+				<!--<md-option [value]="'renault'">Renault</md-option>-->
+				<!--<md-option [value]="'nissan'">Nissan</md-option>-->
+				<!--<md-option [value]="'rci'">RCI</md-option>-->
+				<!--</md-select>-->
+				<!--</div>-->
+
+				<!--<div fxLayout="column" style="float: right;padding:0">
+					<div fxFlex.gt-sm="10" fxFlex="10">
+						<div class="btn-group" fxFlex.gt-sm="100" style="margin-top: 2%; float: right">
+							<a *ngFor="let lang of supportedLangs" (click)="selectLang(lang.value)" style="cursor:pointer">
+								<img src="{{ lang.display }}" alt="">
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="logo"></div>-->
+			<!--</div>-->
+		<!--</div>-->
+
+		<div>
+			<router-outlet></router-outlet>
+		</div>
+		<p>
+			<!--Translate with Service: <strong>{{ translatedText }}</strong>-->
+		</p>
+		<!--</div>-->
+
+		<!-- spinner loader -->
+		<span *ngIf="showLoader" class="loading"></span>
+
+		<app-footer></app-footer>
+	</div>
+</div>

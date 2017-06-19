@@ -1,0 +1,57 @@
+<div class="" fxFlex="100">
+    <!--   <md-content class="md-padding" layout-xs="column" layout="row">
+
+    </md-content>-->
+    <div class="spaceCard" fxLayout="row" fxLayoutAlign="center center">
+        <md-card fxFlex.gt-sm="70" fxFlex="100">
+            <md-card-header [ngStyle]="{'padding': '1%'}">
+                <span>Serviços Disponíveis</span>
+            </md-card-header>
+
+            <md-card-content>
+                   <form class="example-form" #f="ngForm" [ngStyle]="{'padding': '4%'}">
+                    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5%">
+                        <div fxFlex.gt-sm="80" fxFlex.xs="100%">
+                            <md-select fxFlex.gt-sm="100%" fxFlex.gt-xs="100%" placeholder="Concessionárias" [(ngModel)]="structureSelect" #name="ngModel"
+                                name="structure" required>
+                                <md-option *ngFor="let structure of listStructure" [value]="structure.structureId">
+                                    {{structure.description}}
+                                </md-option>
+                            </md-select>
+                        </div>
+                        <div fxFlex.gt-sm="20" fxFlex.xs="100%">
+                            <button fxFlex.xs="100%" md-raised-button color="primary" [disabled]="!f.form.valid" (click)="consult()"> Procurar</button>
+                        </div>
+                    </div>
+                </form>
+            </md-card-content>
+
+            <md-card-content *ngIf="result">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="concessionaria">
+                            <th [ngStyle]="{'text-align': 'center'}">Nome</th>
+                            <th [ngStyle]="{'text-align': 'center'}">Serviço Disponível</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr [ngStyle]="{'text-align': 'center'}" *ngFor="let service of listService">
+                            <td>{{service.description}}</td>
+                            <td>
+                                <md-radio-group  [(ngModel)]="service.activeStructure">
+                                    <md-radio-button [value]="true">Disponível</md-radio-button>
+                                    <md-radio-button [value]="false">Não Disponível</md-radio-button>
+                                </md-radio-group>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div fxLayoutAlign="end none">
+                    <div fxFlex.gt-sm="20%" fxFlex.xs="100%">
+                        <button fxFlex.xs="100%" md-raised-button color="primary" (click)="save()"> Salvar</button>
+                    </div>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>

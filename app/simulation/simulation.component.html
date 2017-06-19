@@ -1,0 +1,127 @@
+<div fxFlex.xs="100%" fxHide.xs="true" fxFlex.gt-sm="100%" fxLayoutAlign="center center" [ngStyle]="{'margin-top.px': '3', 'margin-left': '12%'}">
+    <md-card fxFlex.gt-sm="80%" fxFlex.xs="100%" class="no-border" fxLayoutWrap>
+
+        <div fxLayout="row" fxFlex.gt-sm="100%" fxLayoutAlign="end" fxLayoutGap="1%">
+            <button md-raised-button (click)="sendByEmail('')"><md-icon>mail_outline</md-icon>E-mail</button>
+            <button md-raised-button><md-icon>print</md-icon> Imprimir</button>
+            <button md-raised-button color="primary" class="btn-confg"><div><span>Salvar</span><br><span>Simulação</span></div></button>
+        </div>
+
+        <div fxLayout="row" fxFlex.gt-sm="100%" fxHide.xs="true" fxHide.sm="true" fxLayoutAlign="end" [ngStyle]="{'margin-top.px': '5'}">
+            <stepper [steep]="steep" (changeStep)="changeStep($event)"></stepper>
+        </div>
+
+        <form-client fxFlex.gt-sm="100%" *ngIf="steep===0" (changeStep)="changeStep($event)" fxLayoutAlign="center center" [simulation]="simulation"></form-client>
+        <carselect *ngIf="steep===1 && simulation.vizualization != true" [simulation]="simulation" (changeStep)="changeStep($event)"  (changecar)="changecar($event)">
+        </carselect>
+        <new-ones fxFlex.gt-sm="100%" *ngIf="steep===1 && simulation.vizualization == true" [simulation]="simulation"> </new-ones>
+    </md-card>
+</div>
+
+<div fxHide fxHide.xs="false" fxFlex.xs="100%" fxLayoutAlign="start none" [ngStyle]="{'background-color': '#ebebeb'}">
+    <div fxLayout="row" fxFlex.xs="100%" fxLayoutWrap [ngStyle]="{'margin-left': '10px'}">
+        <!--<div fxFlex.xs="100%">-->
+        <h4><i class="fa fa-arrow-left"></i> Edit vehicle</h4>
+        <!--</div>-->
+    </div>
+    <md-card fxFlex.xs="100%" fxLayout="row">
+        <!--<div>-->
+
+        <!--</div>-->
+        <md-card-content fxFlex.xs="100%">
+            <div fxFlex.xs="100%" [ngStyle]="{'border': '1px solid #ccc', 'background-color': '#fdfdfd'}">
+                <form [ngStyle]="{'padding': '10px'}">
+                    <div fxLayout="row">
+                        <div fxLayoutAlign="start none">
+                            <h4 class="color-default"><b>Call Condition</b></h4>
+                        </div>
+                        <div fxLayoutAlign="end none" [ngStyle]="{'position': 'absolute', 'right': '15px', 'top': '30px'}">
+                            <i [ngStyle]="{'margin-top': '4px'}" class="fa fa-chevron-left"></i>
+                            <span>o</span>
+                            <i [ngStyle]="{'margin-top': '4px'}" class="fa fa-chevron-right"></i>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start none" [ngStyle]="{'margin-top': '2%'}" fxLayoutGap="10%">
+                        <md-select fxFlex.gt-xs="100%" placeholder="Type of Financing" name="financingType" required>
+                            <md-option ng-value="0">Select a Type of Financing</md-option>
+                            <md-option *ngFor="let typeGrace of typesGrace" [value]="typeGrace.value">
+                                {{typeGrace.viewValue}}
+                            </md-option>
+                        </md-select>
+                        <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start none" [ngStyle]="{'margin-top': '2%'}" fxLayoutGap="10%">
+                        <md-select fxFlex.gt-xs="100%" placeholder="Financing table" name="table" required>
+                            <md-option ng-value="0"></md-option>
+                            <md-option *ngFor="let typeGrace of typesGrace" [value]="typeGrace.value">
+                                {{typeGrace.viewValue}}
+                            </md-option>
+                        </md-select>
+                        <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start none" [ngStyle]="{'margin-top': '2%'}" fxLayoutGap="10%">
+                        <md-select fxFlex.gt-xs="100%" placeholder="Lack" name="lack" required>
+                            <md-option value="30">30</md-option>
+                            <md-option *ngFor="let typeGrace of typesGrace" [value]="typeGrace.value">
+                                {{typeGrace.viewValue}}
+                            </md-option>
+                        </md-select>
+                        <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start none" [ngStyle]="{'margin-top': '2%'}" fxLayoutGap="10%">
+                        <md-input-container fxFlex.xs="100%">
+                            <input mdInput ngControl placeholder="Entry" type="text" name="entry" required>
+                            <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                        </md-input-container>
+                        <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start none" [ngStyle]="{'margin-top': '2%'}" fxLayoutGap="10%">
+                        <md-input-container fxFlex.xs="100%">
+                            <input mdInput ngControl placeholder="Duration of funding" type="number" name="durationFunding" required>
+                            <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                        </md-input-container>
+                        <!--<md-error>{{ 'field-required' | translate }}</md-error>-->
+                    </div>
+                    <div fxLayout="row" [ngStyle]="{'margin-top': '2%'}" fxLayoutGap="10%">
+                        <div fxLayoutAlign="start none" fxFlex.xs="50%">
+                            <label for="insurance">Insurance and services</label>
+                        </div>
+                        <div fxLayoutAlign="end none" fxFlex.xs="50%">
+                            <button md-raised-button color="primary" [ngStyle]="{'width': '170px', 'font-size': '11px'}">View services and insurance</button>
+                        </div>
+                    </div>
+                    <div fxLayout="row" [ngStyle]="{'margin-top': '2%'}" fxLayoutGap="10%">
+                        <div fxLayoutAlign="start none" fxFlex.xs="50%">
+                            <label for="autoInsurance">auto insurance</label>
+                        </div>
+                        <div fxLayoutAlign="start none" fxFlex.xs="50%">
+                            <button md-raised-button color="primary" [ngStyle]="{'width': '170px', 'font-size': '11px'}">To quote auto insurance</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </md-card-content>
+    </md-card>
+</div>
+<!--<div fxLayout="row" fxLayoutGap="1%" fxHide.xs="true" fxHide.sm="true" fxLayoutWrap>
+                <div fxFlex.gt-sm="100%">
+                    <div fxLayout="row" fxLayoutAlign="end none">
+                        
+                        
+                        
+                        <div>
+                            <button md-raised-button><md-icon>mail_outline</md-icon>E-mail</button>
+                            <button md-raised-button><md-icon>print</md-icon> Imprimir</button>
+                        </div>
+                        <div>
+                            <button md-raised-button color="primary">Salvar Simulação</button>
+                        </div>
+
+                    </div>
+                </div>
+                 <div fxLayout="row" fxFlex.gt-sm="100%" fxHide.xs="true" fxHide.sm="true" fxLayoutAlign="center center">
+                    <stepper></stepper>
+                </div>
+            </div>-->

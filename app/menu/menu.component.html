@@ -1,0 +1,84 @@
+<div class="column header">
+    <md-card fxFlex.gt-sm="100" fxFlex.xs="100">
+        <!--<img src="../assets/images/logo_1.png" width="150" height="150" />-->
+        <div fxFlex.xs="50">
+            <button md-button routerLink="/"><div id="bradge"></div></button>
+        </div>
+
+        <div fxLayout="column">
+            <div fxFlex.gt-sm="10" fxFlex.xs="100">
+                <div class="btn-group" fxFlex.xs="100" fxFlex.gt-sm="100" [ngStyle.gt-sm]="{'position': 'absolute', 'right': 0, 'top': '10px'}">
+                    <a *ngFor="let lang of supportedLangs" (click)="selectLang(lang.value)" style="cursor:pointer">
+                        <img src="{{ lang.display }}" alt="">
+                    </a> 
+
+                        <!--<a fxHide [fxHide.xs]="false"     routerLink="/notificacoes" routerLinkActive="active"><md-icon class="icone">notifications</md-icon></a>-->
+                        <!--<a fxHide [fxHide.xs]="false"   routerLink="/perfil" routerLinkActive="active"><md-icon class="icone">account_circle</md-icon></a>-->
+                </div>
+            </div>
+            <div fxFlex.gt-sm="10" fxFlex.xs="100">
+                <div class="btn-group" fxFlex.gt-sm="100" fxFlex.xs="100" [ngStyle]="{'margin-top': '10%'}" [ngStyle.xs]="{'left': '53%', 'display': 'inline-flex'}">
+                    <!--<button md-button routerLink="/login" routerLinkActive="active"><md-icon>assignment_ind</md-icon> {{ 'login' | translate }}</button>-->
+                    <button [ngStyle.xs]="{'min-width': '40px'}" md-button routerLink="/notificacoes" routerLinkActive="active"><md-icon class="icone">notifications</md-icon> <span   fxHide [fxHide.gt-sm]="false">{{ 'notifications' | translate }}</span></button>
+                    <button [ngStyle.xs]="{'display': 'table', 'min-width': '40px'}" md-button routerLink="/profile" routerLinkActive="active"><md-icon class="icone">account_circle</md-icon> <span  fxHide [fxHide.gt-sm]="false">{{ 'my-profile' | translate }}</span></button>
+                    <button md-icon-button [mdMenuTriggerFor]="menuPerfil">
+					  <md-icon>more_vert</md-icon>
+					</button>
+					<md-menu #menuPerfil="mdMenu">
+					  <button md-menu-item>
+					    <md-icon>dialpad</md-icon>
+					    <span>Redial</span>
+					  </button>
+					  <button md-menu-item disabled>
+					    <md-icon>voicemail</md-icon>
+					    <span>Check voicemail</span>
+					  </button>
+					  <button md-menu-item (click)="doLogout()">
+					    <md-icon>reply</md-icon>
+					    <span>{{ 'logout' | translate }}</span>
+					  </button>
+					</md-menu>
+                </div>
+            </div>
+        </div>
+    </md-card>
+</div>
+<div fxLayout="row">
+    <md-toolbar [ngStyle]="{'background-color': '#f1f1f1'}" class="space" fxLayoutAlign.gt-sm="center center">
+        <!-- This fills the remaining space of the current row -->
+        <span class="fill-remaining-space"></span>
+        <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+
+            <!--<button style="width: 18%" md-button routerLink="/"><div id="bradge"></div></button>-->
+            <button md-button routerLink="./simulation" routerLinkActive="active"><md-icon class="icon">queue</md-icon> {{ 'new-simulation' | translate }}</button>
+            <button md-button routerLink="./my_agreement" routerLinkActive="active"><md-icon  class="icon">library_books</md-icon> {{ 'my-proposals' | translate }}</button>
+            <button md-button routerLink="./relatorios" routerLinkActive="active"><md-icon  class="icon">trending_up</md-icon> Seguros </button>
+            <button md-button [mdMenuTriggerFor]="administracao"><md-icon  class="icon">settings<!-- account_box--></md-icon> Administração</button>
+                <md-menu #administracao="mdMenu">
+                    <button md-menu-item routerLink="./available" routerLinkActive="active">Desativação de Serviços</button>
+                    <button md-menu-item routerLink="./mandatory" routerLinkActive="active">Configuração de Serviços(Obrigatório)</button>
+                    <button md-menu-item routerLink="./dealer_proposal" routerLinkActive="active">Propostas com Alteração de Concessionária</button>
+                    <button md-menu-item routerLink="./submissao" routerLinkActive="active">Configuração do Processo de Submissão</button>
+                    <button md-menu-item routerLink="./proposal_update" routerLinkActive="active">Atualização de Proposta</button>
+                    <button md-menu-item routerLink="./promotional_images" routerLinkActive="active">Imagens Promocionais</button>
+                    <button md-menu-item routerLink="./model" routerLinkActive="active">Modelos</button>
+                </md-menu>
+            <button md-button (click)="mudaTheme($event)"><md-icon  class="icon">cached</md-icon> {{ 'change-brand' | translate }}  </button>
+        </div>
+        <button md-button [md-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+     <md-icon>menu</md-icon>
+    </button>
+
+    </md-toolbar>
+    <md-menu fxLayoutAlign="end none" x-position="before" #menu="mdMenu">
+        <button color="primary" md-menu-item routerLink="/home" routerLinkActive="active"><md-icon>queue</md-icon>{{ 'new-simulation' | translate }}</button>
+        <button md-menu-item routerLink="/about" routerLinkActive="active"><md-icon>library_books</md-icon>{{ 'my-proposals' | translate }}</button>
+        <button md-menu-item routerLink="/relatorios" routerLinkActive="active"><md-icon>trending_up</md-icon> {{ 'reports' | translate }}</button>
+        <button md-menu-item routerLink="/productPromotional" routerLinkActive="active"><md-icon>watch_later</md-icon> {{ 'support' | translate }}</button>
+        <button md-button (click)="mudaTheme($event)"><md-icon>cached</md-icon> {{ 'change-brand' | translate }}  </button>
+        <button md-button routerLink="/login" routerLinkActive="active"><md-icon>assignment_ind</md-icon> {{ 'login' | translate }}</button>
+        <button md-button routerLink="/perfil" routerLinkActive="active"><md-icon>account_circle</md-icon>{{ 'my-profile' | translate }}</button>
+    </md-menu>
+</div>
+<salesman_communication>
+</salesman_communication>

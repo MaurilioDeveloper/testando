@@ -1,0 +1,139 @@
+<div class="" fxFlex="100">
+    <!--   <md-content class="md-padding" layout-xs="column" layout="row">
+
+    </md-content>-->
+    <div class="spaceCard" fxLayout="row" fxLayoutAlign="center center">
+        <md-card fxFlex.gt-sm="70" fxFlex="100">
+            <md-card-header [ngStyle]="{'padding': '1%'}">
+                <span>Liberação de Retorno</span>
+            </md-card-header>
+
+            <md-card-content>
+                <div>
+                    <form class="example-form" #f="ngForm" [ngStyle]="{'padding': '4%'}">
+                        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5%">
+                            <div fxFlex.gt-sm="20" fxFlex.xs="100%">
+                                <md-select fxFlex.gt-sm="100%" fxFlex.gt-xs="100%" placeholder="Vendedor / Gerente" [(ngModel)]="concessionaria" #name="ngModel"
+                                    name="concessionaria" required>
+                                    <md-option ng-value="0">Selecione um Vendedor / Gerente</md-option>
+                                    <md-option *ngFor="let concessionaria of concessionarias" [value]="concessionaria.value">
+                                        {{concessionaria.viewValue}}
+                                    </md-option>
+                                </md-select>
+                            </div>
+                            <div fxFlex.gt-sm="20" fxFlex.xs="100%">
+                                <md-select fxFlex.gt-sm="100%" fxFlex.gt-xs="100%" placeholder="Produto" [(ngModel)]="produto" #name="ngModel" name="produto"
+                                    required>
+                                    <md-option ng-value="0">Selecione um produto</md-option>
+                                    <md-option *ngFor="let concessionaria of concessionarias" [value]="concessionaria.value">
+                                        {{concessionaria.viewValue}}
+                                    </md-option>
+                                </md-select>
+                            </div>
+                            <div fxFlex.gt-sm="20" fxFlex.xs="100%">
+                                <md-select fxFlex.gt-sm="100%" fxFlex.gt-xs="100%" placeholder="Tipo de Venda" [(ngModel)]="tipoVenda" #name="ngModel" name="tipoVenda"
+                                    required>
+                                    <md-option ng-value="0">Selecione um tipo de Venda</md-option>
+                                    <md-option *ngFor="let concessionaria of concessionarias" [value]="concessionaria.value">
+                                        {{concessionaria.viewValue}}
+                                    </md-option>
+                                </md-select>
+                            </div>
+                            <div fxFlex.gt-sm="20" fxFlex.xs="100%">
+                                <md-select fxFlex.gt-sm="100%" fxFlex.gt-xs="100%" placeholder="Retorno (código frota)" [(ngModel)]="codFrota" #name="ngModel"
+                                    name="codFrota" required>
+                                    <md-option ng-value="0">Selecione retorno</md-option>
+                                    <md-option *ngFor="let concessionaria of concessionarias" [value]="concessionaria.value">
+                                        {{concessionaria.viewValue}}
+                                    </md-option>
+                                </md-select>
+                            </div>
+                            <div fxFlex.gt-sm="20" fxFlex.xs="100%">
+                                <button fxFlex.xs="100%" md-raised-button color="primary" [disabled]="!f.form.valid" (click)="mostrarLiberacoesRealizadas(true)"> Liberar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </md-card-content>
+        </md-card>
+    </div>
+
+    <div class="spaceCard" fxLayout="row" fxLayoutAlign="center center" *ngIf="mostrar">
+        <md-card fxFlex.gt-sm="70" fxFlex="100">
+            <md-card-content  [ngStyle]="{'padding': '4%'}">
+                <h3 [ngStyle]="{'text-align': 'center'}">Liberações Realizadas</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="concessionaria">
+                            <th [ngStyle]="{'text-align': 'center'}" *ngFor="let dados of dadosTeste.table.columns.column">
+                                {{dados.label}}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr [ngStyle]="{'text-align': 'center'}" *ngFor="let row of dadosTeste.table.rows.row">
+                            <td>{{row.column1}}</td>
+                            <td>{{row.column2}}</td>
+                            <td>{{row.column3}}</td>
+                            <td>{{row.column4}}</td>
+                            <td>{{row.column5}}</td>
+                            <td>{{row.column6}}</td>
+                            <td>{{row.column7}}</td>
+                            <td>{{row.column8}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div [ngStyle]="{'text-align': 'center'}">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!--<td-data-table [data]="data" [columns]="columns" [selectable]="true|false" [multiple]="true|false" [sortable]="true|false"-->
+                <!--[sortBy]="sortBy" [sortOrder]="'ASC'|'DESC'" (sortChange)="sortEvent($event)" (rowSelect)="selectEvent($event)"-->
+                <!--(selectAll)="selectAllEvent($event)">-->
+                <!--</td-data-table>-->
+
+      <!--          <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
+                    <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
+    <span class="md-title">Title here</span>
+                    </span>
+                    <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
+    <!--<span *ngIf="(selectable && !selectedRows.length) || !selectable" class="md-title">Title here</span>-->
+                    <!--<span *ngIf="selectedRows.length && selectable" class="md-body-1">0 item(s) selected</span>-->
+       <!--             </span>
+                    <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="Search here" (searchDebounce)="search($event)"
+                        flex>
+                    </td-search-box>
+                </div>
+                <md-divider></md-divider>
+                <td-data-table #dataTable [data]="filteredData" [columns]="columns" [selectable]="selectable" [clickable]="clickable" [multiple]="multiple"
+                    [sortable]="true" [sortBy]="sortBy" [sortOrder]="sortOrder" (sortChange)="sort($event)">
+                </td-data-table>
+                <div class="md-padding" *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
+                    <h3>No results to display.</h3>
+                </div>
+                <td-paging-bar #pagingBar [pageSizes]="[5, 10, 15, 20]" [total]="filteredTotal" (change)="page($event)">
+                    <span td-paging-bar-label hide-xs>Row per page:</span> {{pagingBar.range}} <span hide-xs>of {{pagingBar.total}}</span>
+                </td-paging-bar> -->
+            </md-card-content>
+        </md-card>
+    </div>
+</div>

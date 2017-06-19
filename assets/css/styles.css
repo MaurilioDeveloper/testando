@@ -1,0 +1,17 @@
+.navbar-nav a.active {
+	background-color: #e7e7e7 !important;
+	color: #555 !important;
+}
+
+.app-content {
+	padding: 20px;
+}
+
+.app-content md-card {
+	margin: 20px;
+}
+
+.flexDemoContainer {
+  border: solid 1px red;
+  box-sizing: content-box !important;
+}

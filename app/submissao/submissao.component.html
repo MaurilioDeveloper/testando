@@ -1,0 +1,95 @@
+<div class="" fxFlex="100">
+    <!--   <md-content class="md-padding" layout-xs="column" layout="row">
+
+    </md-content>-->
+    <div class="spaceCard" fxLayout="row" fxLayoutAlign="center center">
+        <md-card fxFlex.gt-sm="70" fxFlex.xs="100%">
+            <md-card-header [ngStyle]="{'padding': '1%'}" [ngStyle.xs]="{'height': '75px'}">
+                <span>Configuração do processo de submissão</span>
+            </md-card-header>
+
+            <md-card-content>
+                <form class="example-form" #f="ngForm" [ngStyle]="{'padding': '4%'}">
+                    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5%">
+                        <div fxFlex.gt-sm="40%" fxFlex.xs="34%">
+                            <md-select fxFlex.gt-sm="100%" fxFlex.gt-xs="20%" placeholder="Tipo de alteração" [(ngModel)]="typeUpdadeSelect"
+                                #name="ngModel" name="tipoAlteracao" required>
+                                <md-option ng-value="0">Selecione um tipo de alteração</md-option>
+                                <md-option *ngFor="let typeUpdade of typesUpdade" [value]="typeUpdade.value">
+                                    {{typeUpdade.viewValue}}
+                                </md-option>
+                            </md-select>
+                        </div>
+
+                        <div fxFlex.gt-sm="40%" fxFlex.xs="34%" *ngIf="typeUpdadeSelect === 2">
+                            <md-select [ngStyle.xs]="{'width': '35%'}" fxFlex.gt-sm="100%" fxFlex.gt-xs="35%" placeholder="Concessionária" [(ngModel)]="request.structureId" #name="ngModel"
+                                name="concessionaria" required>
+                                <md-option *ngFor="let structure of listStructure" [value]="structure.structureId">
+                                    {{structure.description}}
+                                </md-option>
+                            </md-select>
+                        </div>
+
+                        <div fxFlex.gt-sm="20%" fxFlex.xs="15%">
+                            <button *ngIf="typeUpdadeSelect === 1" fxFlex.xs="60%" md-raised-button color="primary" [disabled]="!f.form.valid" (click)="consultSubmitUser()"> Procurar</button>
+                            <button *ngIf="typeUpdadeSelect === 2" fxFlex.xs="60%" md-raised-button color="primary" [disabled]="!f.form.valid" (click)="consultSubmitRole()"> Procurar</button>
+                        </div>
+                    </div>
+                </form>
+
+            </md-card-content>
+            <md-card-content [ngStyle]="{'padding': '4%'}" *ngIf="resultUser">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="concessionaria">
+                            <th [ngStyle]="{'text-align': 'center'}">Nome</th>
+                            <th [ngStyle]="{'text-align': 'center'}">Envio de proposta para análise de crédito1</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr [ngStyle]="{'text-align': 'center'}" *ngFor="let userSubmit of listUser">
+                            <td>{{userSubmit.namePerson}}</td>
+                            <td>
+                                <md-radio-group  [(ngModel)]="userSubmit.dossierSubmitAllowed">
+                                    <md-radio-button [value]="true">Autorizado</md-radio-button>
+                                    <md-radio-button [value]="false">Não Autorizado</md-radio-button>
+                                </md-radio-group>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div fxLayoutAlign="end none">
+                    <div fxFlex.gt-sm="20%" fxFlex.xs="100%">
+                        <button fxFlex.xs="100%" md-raised-button color="primary" (click)="saveSubmitUser()"> Salvar</button>
+                    </div>
+                </div>
+            </md-card-content>
+            <md-card-content [ngStyle]="{'padding': '4%'}" *ngIf="resultSubmitRole">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="concessionaria">
+                            <th [ngStyle]="{'text-align': 'center'}">Nome</th>
+                            <th [ngStyle]="{'text-align': 'center'}">Envio de proposta para análise de crédito</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr [ngStyle]="{'text-align': 'center'}" *ngFor="let role of listSubmitRole">
+                            <td>{{role.description}}</td>
+                            <td>
+                                <md-radio-group  [(ngModel)]="role.allowed">
+                                    <md-radio-button [value]="true">Autorizado</md-radio-button>
+                                    <md-radio-button [value]="false">Não Autorizado</md-radio-button>
+                                </md-radio-group>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div fxLayoutAlign="end none">
+                    <div fxFlex.gt-sm="20%" fxFlex.xs="100%">
+                        <button fxFlex.xs="100%" md-raised-button color="primary" (click)="saveSubmitRole()"> Salvar</button>
+                    </div>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+</div>

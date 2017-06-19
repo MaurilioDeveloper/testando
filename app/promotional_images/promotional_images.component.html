@@ -1,0 +1,81 @@
+<div fxFlex.xs="100%" fxFlex.gt-sm="100%" fxLayoutAlign="center center" class="spaceCard">
+    <md-card fxFlex.gt-sm="60%" fxFlex.xs="100%" class.xs="no-border">
+
+        <md-card-header id="card-menu-proposta">
+            <span [ngStyle.xs]="{'margin-top.px':8}">Imagens Promocionais</span>
+        </md-card-header>
+
+        <div fxLayout="row" 
+             class="spaceCard2" 
+             fxLayoutWrap 
+             fxLayoutGap.gt-sm="10%" 
+             fxLayoutAlign="center center">
+
+            <div fxFlex.gt-sm="35%" fxFlex.xs="100%" fxLayoutAlign.xs="center center">
+                <md-select placeholder="Selecione a marca:" 
+                    fxFlex.xs="90%" 
+                    fxFlex.gt-sm="100%" 
+                    [ngStyle.xs]="{'margin-top.px':8}">
+                    
+                    <md-option *ngFor="let marca of marcas" [value]="marca.value" fxFlex.xs="100%">
+                    {{ marca.viewValue }}
+                    </md-option>
+                </md-select>
+            </div>
+
+            <div fxFlex.gt-sm="15%" fxFlex.xs="100%">
+                <button md-raised-button fxFlex.xs="100%" color="primary" [ngStyle.xs]="{'margin-top.px':8}" (click)="searchImage()">Procurar</button>
+            </div>
+        </div>
+
+        <div fxLayout="row"
+             fxLayoutWrap
+             fxLayoutAlign="center"
+             [ngStyle]="{'padding-top': '5%', 'margin-bottom': '3%'}" *ngIf="showCard">
+
+            <div fxFlex.gt-sm="50%" fxFlex.xs="100%">
+                <md-card fxFlex.gt-sm="100%" fxFlex.xs="100%" class="no-border">
+                    
+                    <div class="cardPromo">
+                        <img width="100%" src="../assets/images/promocional_renault.jpg" alt="" class="imgPromo">
+                    </div>
+                    
+                    <div fxLayoutGap.sm="1%" 
+                         fxLayoutGap.md="1%" 
+                         fxLayoutGap.lg="1%" 
+                         fxLayoutGap.xl="1%" 
+                         fxLayoutAlign="center" 
+                         [ngStyle]="{'padding':'1%'}">
+
+                        <div fxFlex.xs="100%"  fxFlex.gt-sm="35%" >
+                            <input class="ng-hide" id="input-file-id" [ngStyle]="{'display': 'none'}" multiple type="file" />
+                        <label fxFlex.xs="100%"
+                            for="input-file-id"
+                            class="mat-raised-button mat-primary" 
+                            md-colors="{color: 'primary'}">
+                            <i class="fa fa-upload">
+                            </i> Escolher Arquivo</label>                           
+                        </div>
+                        <div fxFlex.xs="100%" fxFlex.gt-sm="25%">
+                            <button md-raised-button fxFlex.xs="100%" color="primary">Remover</button>
+                        </div>
+                    </div>
+
+                         <div fxLayout="row" fxLayoutAlign="end none">
+                            <div fxFlex.gt-sm="25%" fxFlex.xs="100%" class="btnSalvarPromo">
+                                <button md-raised-button fxFlex.xs="100%" color="primary" >Salvar</button>
+                            </div>
+                        </div>
+
+                </md-card>
+            </div>
+        </div>
+        
+        <!--<div fxLayout="row" *ngIf="showCard" fxLayoutAlign="end none">
+            <div fxFlex.gt-sm="18%" fxFlex.xs="100%" class="btnSalvarPromo">
+                <button md-raised-button fxFlex.xs="100%" color="primary" >Salvar</button>
+            </div>
+        </div>-->
+
+    </md-card>
+</div>

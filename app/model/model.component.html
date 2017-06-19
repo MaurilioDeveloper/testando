@@ -1,0 +1,226 @@
+<div fxFlex.xs="100%" 
+     fxFlex.gt-sm="100%" 
+     fxLayoutAlign="center center" 
+     class="spaceCard" fxLayoutWrap>
+    <md-card fxFlex.gt-sm="60%" fxFlex.xs="100%" class="no-border">
+        <div>
+            <div fxLayout="row" fxLayoutGap="1%">    
+            <button md-raised-button 
+                color="primary" 
+                class="btnHideModel"
+                (click)="clicked('1')"><i class="material-icons">{{varBtnMarca}}</i></button>            
+                <h4 class="black-color">MARCA</h4>
+            </div>
+            <div fxLayout="row">
+                <hr class="color-border-default" [ngStyle]="{'margin-top': '-2px'}" fxFlex.gt-sm="100%"/>
+            </div>
+        </div>
+<!--MARCA-->
+        <div *ngIf="btnHideMarca==true">
+            <div fxLayout="row" 
+                fxLayoutWrap 
+                fxLayoutAlign="start none" 
+                fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">MODELO</b></span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component">
+                <div fxFlex.gt-sm="35%" fxFlex.xs="100%">  
+                    <md-select fxFlex.gt-sm="100%" placeholder="Marca de Veículo">
+                        <md-option *ngFor="let marca of marcas" [value]="marca.value">
+                        {{ marca.viewValue }}
+                        </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign.xs="center center">
+                <div class="cardModelo" >
+                <img width="100%" src="../assets/images/renault.png" alt="" class="imgModelo">
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="1%" class="btnSearch-model" [ngStyle.xs]="{'padding-left':'0%'}">
+                <div fxFlex.xs="100%"  fxFlex.gt-sm="20%" >
+                    <input class="ng-hide" id="input-file-id" [ngStyle]="{'display': 'none'}" multiple type="file" />
+                    <label fxFlex.xs="100%"
+                        for="input-file-id"
+                        class="mat-raised-button mat-primary" 
+                        md-colors="{color: 'primary'}">
+                        <i class="fa fa-upload">
+                    </i> Escolher Arquivo</label>                           
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between" [ngStyle]="{'padding-top': '1%' }" fxLayoutGap.xs="1%">
+                <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+                <button md-raised-button fxFlex.xs="100%" color="primary">Remover</button>
+                </div>
+                <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+                <button md-raised-button fxFlex.xs="100%" color="primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </md-card>
+<!--MODELO-->
+    <md-card fxFlex.gt-sm="60%" fxFlex.xs="100%" class="no-border">
+        <div fxLayout="row" fxLayoutGap="1%" [ngStyle]="{'padding-top':'1%'}">    
+            <button md-raised-button 
+                color="primary" 
+                class="btnHideModel" 
+                (click)="clicked('2')"><i class="material-icons">{{varBtnModelo}}</i></button>            
+            <h4 class="black-color">MODELO</h4>
+        </div>
+        <div fxLayout="row">
+            <hr class="color-border-default" [ngStyle]="{'margin-top': '-2px'}" fxFlex.gt-sm="100%"/>
+        </div>
+        <div *ngIf="btnHideModelo==true">
+            <div fxLayout="row" 
+                    fxLayoutWrap 
+                    fxLayoutAlign="start none" 
+                    fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">MARCA</b></span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component">
+                <div fxFlex.gt-sm="35%" fxFlex.xs="100%">  
+                    <md-select fxFlex.gt-sm="100%" placeholder="Marca de Veículo">
+                    <md-option *ngFor="let marca of marcas" [value]="marca.value">
+                    {{ marca.viewValue }}
+                    </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div fxLayout="row" 
+                    fxLayoutWrap 
+                    fxLayoutAlign="start none" 
+                    fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">MODELO</b></span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component">
+                <div fxFlex.gt-sm="35%" fxFlex.xs="100%">  
+                    <md-select fxFlex.gt-sm="100%" placeholder="Modelo de Veículo">
+                        <md-option *ngFor="let modelo of modelos" [value]="modelo.value">
+                        {{ modelo.viewValue }}
+                        </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign.xs="center center">
+                <div class="cardModelo">
+                    <img width="100%" src="../assets/images/fusca.jpg" alt="" class="imgModelo">
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="1%" class="btnSearch-model" [ngStyle.xs]="{'padding-left':'0%'}">
+                <div fxFlex.xs="100%"  fxFlex.gt-sm="20%" >
+                    <input class="ng-hide" id="input-file-id" [ngStyle]="{'display': 'none'}" multiple type="file" />
+                        <label fxFlex.xs="100%"
+                        for="input-file-id"
+                        class="mat-raised-button mat-primary" 
+                        md-colors="{color: 'primary'}">
+                        <i class="fa fa-upload">
+                    </i> Escolher Arquivo</label>                           
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between" [ngStyle]="{'padding-top': '1%' }" fxLayoutGap.xs="1%">
+                <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+                    <button md-raised-button fxFlex.xs="100%" color="primary">Remover</button>
+                </div>
+                    <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+                    <button md-raised-button fxFlex.xs="100%" color="primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </md-card>
+<!--VERSÃO-->
+    <md-card fxFlex.gt-sm="60%" fxFlex.xs="100%" class="no-border">
+        <div fxLayout="row" fxLayoutGap="1%" [ngStyle]="{'padding-top':'1%'}">    
+            <button md-raised-button 
+                color="primary" 
+                class="btnHideModel" 
+                (click)="clicked('3')"><i class="material-icons">{{varBtnVersao}}</i></button>            
+            <h4 class="black-color">VERSÃO</h4>
+        </div>
+        <div fxLayout="row">
+            <hr class="color-border-default" [ngStyle]="{'margin-top': '-2px'}" fxFlex.gt-sm="100%"/>
+        </div>
+        <div *ngIf="btnHideVersao==true">
+            <div fxLayout="row" 
+                 fxLayoutWrap 
+                 fxLayoutAlign="start none" 
+                 fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">MARCA</b></span>
+                </div>
+            </div>
+            <div fxLayout="row" class="space-component">
+                <div fxFlex.gt-sm="35%" fxFlex.xs="100%">  
+                    <md-select fxFlex.gt-sm="100%" placeholder="Marca de Veículo">
+                    <md-option *ngFor="let marca of marcas" [value]="marca.value">
+                    {{ marca.viewValue }}
+                    </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div fxLayout="row" 
+                    fxLayoutWrap 
+                    fxLayoutAlign="start none" 
+                    fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">MODELO</b></span>
+                </div>
+            </div>
+             <div fxLayout="row" class="space-component">
+                <div fxFlex.gt-sm="35%" fxFlex.xs="100%">  
+                    <md-select fxFlex.gt-sm="100%" placeholder="Modelo de Veículo">
+                        <md-option *ngFor="let modelo of modelos" [value]="modelo.value">
+                        {{ modelo.viewValue }}
+                        </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div fxLayout="row" 
+                    fxLayoutWrap 
+                    fxLayoutAlign="start none" 
+                    fxLayoutWrap>
+                <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayoutGap="10%">
+                    <span><b class="black-color">VERSÃO</b></span>
+                </div>
+            </div>
+             <div fxLayout="row" class="space-component">
+                <div fxFlex.gt-sm="35%" fxFlex.xs="100%">  
+                    <md-select fxFlex.gt-sm="100%" placeholder="Modelo de Veículo">
+                        <md-option *ngFor="let versao of versoes" [value]="versao.value">
+                        {{ versao.viewValue }}
+                        </md-option>
+                    </md-select>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign.xs="center center">
+                <div class="cardModelo">
+                    <img width="100%" src="../assets/images/fusca.jpg" alt="" class="imgModelo">
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutGap="1%" class="btnSearch-model" [ngStyle.xs]="{'padding-left':'0%'}">
+                <div fxFlex.xs="100%"  fxFlex.gt-sm="20%" >
+                    <input class="ng-hide" id="input-file-id" [ngStyle]="{'display': 'none'}" multiple type="file" />
+                        <label fxFlex.xs="100%"
+                        for="input-file-id"
+                        class="mat-raised-button mat-primary" 
+                        md-colors="{color: 'primary'}">
+                        <i class="fa fa-upload">
+                    </i> Escolher Arquivo</label>                           
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between" [ngStyle]="{'padding-top': '1%' }" fxLayoutGap.xs="1%">
+                <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+                    <button md-raised-button fxFlex.xs="100%" color="primary">Remover</button>
+                </div>
+                    <div fxFlex.xs="100%" fxFlex.gt-sm="20%">
+                    <button md-raised-button fxFlex.xs="100%" color="primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </md-card>
+</div>

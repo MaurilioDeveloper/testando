@@ -1,0 +1,620 @@
+@import '../../node_modules/@angular/material/_theming.scss';
+@include mat-core();
+@import url('https://fonts.googleapis.com/css?family=Exo+2:400,700,900');
+
+html{
+	font-family: 'Exo 2', sans-serif;
+}
+div{
+	font-family: 'Exo 2', sans-serif;
+}
+
+
+//tema nissan
+$mat-nissan: (
+    50 : #fdd0cd,
+    100 : #ff5749,
+    200 : #f73800,
+    300 : #ff1f00,
+    400 : #ff0000,
+    500 : #ff0a00,
+    600 : #bf0000,
+    700 : #ba2e37,
+    800 : #C51733,
+    900 : #76181e,
+    A100 : #ff5749,
+    A200 : #f73800,
+    A400 : #ff0000,
+    A700 : #ba2e37,
+    contrast: (
+        50 : #000000,
+        100 : #ffffff,
+        200 : #ffffff,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+
+// tema renault
+$mat-renault: (
+    50 : #fef6e0,
+    100 : #fde8b3,
+    200 : #fbd880,
+    300 : #f9c84d,
+    400 : #f7b100,
+    500 : #e2a507,
+    600 : #d89700,
+    700 : #f39800,
+    800 : #ffcd00,
+    900 : #d67800,
+    A100 : #fde8b3,
+    A200 : #fbd880,
+    A400 : #f7b100,
+    A700 : #f39800,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+//tema rci
+$mat-rci: (
+    50 : #fdd0cd,
+    100 : #ff5749,
+    200 : #f73800,
+    300 : #ff1f00,
+    400 : #ff0000,
+    500 : #ff0a00,
+    600 : #bf0000,
+    700 : #ba2e37,
+    800 : #8e282e,
+    900 : #76181e,
+    A100 : #ff5749,
+    A200 : #f73800,
+    A400 : #ff0000,
+    A700 : #ef6c00,
+    contrast: (
+        50 : #000000,
+        100 : #ffffff,
+        200 : #ffffff,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+
+
+// Define o thema para a NISSAN
+$primary-nissan: mat-palette($mat-nissan, 800);
+$accent-nissan: mat-palette($mat-grey,  A200, A100, A400);
+$theme-nissan: mat-light-theme($primary-nissan, $accent-nissan);
+
+// Define o thema para Renault
+$primary-renault: mat-palette($mat-renault, 800);
+$accent-renault: mat-palette($mat-grey, A200, A100, A400);
+$theme-renault: mat-light-theme($primary-renault, $accent-renault);
+
+// Define o thema para RCI
+$primary-rci: mat-palette($mat-rci, A700);
+$accent-rci: mat-palette($mat-grey, A200, A100, A400);
+$theme-rci: mat-light-theme($primary-rci, $accent-rci);
+
+.spaceCard {
+	margin-top: 4%;
+}
+
+.spaceCard2{
+	margin-top: 6%;
+}
+
+.spaceLista {
+	margin-top: 7%;
+}
+
+.ql-container {
+	height: 250px !important;
+}
+
+label.mat-input-placeholder.mat-float {
+    color: #939598;
+    font-weight: bold;
+}
+
+.titulo {
+	font-size: 23px;
+	color: #000;
+	padding: 13px 10px;
+}
+
+.conteudos-content {
+	color: #7f7f7f;
+	font-size: 16px;
+	padding: 20px 12px;
+}
+
+.card-menu {
+	padding-top: 3% !important;
+}
+
+.header {
+	height: 65px;
+  	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+ 	width: 100%;
+  	z-index: 9999;
+}
+
+.spaceButtonsMenu {
+	margin-top: 2%;
+}
+
+.cdk-overlay-pane {
+	padding-top: 36px;
+	height: 85%;
+    margin-top: 5%;
+    width: 55%;
+}
+
+.mat-option {
+	background-color: #fff;
+}
+
+.space-component{
+	margin-top: 10px;
+}
+
+.icone {
+	border-radius: 17px;
+}
+
+md-card {
+	padding: 0px !important;
+}
+	
+md-card-content {
+	padding: 2% !important;
+}
+
+#card-menu-perfil {
+	padding-top: 3% !important;
+}
+
+ul {list-style: none}
+
+li::before .news{
+		content: "•";
+		padding: 5px
+}
+
+md-card-header {
+	height: 58px;
+	font-size: 23px !important;
+}
+
+.space{
+	margin-top: 60px;
+}
+
+.fonte {
+	font-size: 15px;
+}
+
+md-card-content #login {
+	padding: 0px !important;
+}
+	
+md-card-content .layouts{
+	padding: 2% !important;
+}
+
+.content{
+	margin: 10px 10px 10px 10px;
+}
+
+#bradge {
+	width: 200px;
+	height: 60px;
+	margin-left: 1%;
+}
+
+
+//LOGO LOGIN
+#logo-login{
+	width: 200px;
+	height: 40px;
+	margin-left: 2%;
+	margin-top: 1%;
+}
+
+span.mat-select-placeholder {
+    color: #939598;
+	font-size: 14px;
+    font-weight: bold;
+}
+
+.mat-select-trigger {
+	margin: 1em 0;
+    height: 19px !important;
+}
+.circle-white{
+	fill:white;
+}
+.line-default{
+	stroke:#e6e6e6; 
+	stroke-width: 4;
+}
+.button-radius{
+	width: 100px;
+	height: 100px;
+    border-radius: 4px 4px 20px 20px !important;
+	line-height: 20px !important;
+}
+.btn-alignrd{
+	padding-left: 5%;
+}
+.no-border{
+	box-shadow: 0 3px 1px -2px rgba(0,0,0,.0), 0 2px 2px 0 rgba(0,0,0,.0), 0 1px 5px 0 rgba(0,0,0,.0) !important;
+}
+
+.btn-confg{
+	width: 100px !important;
+	line-height: 20px !important;
+}
+
+.stepFour{
+	margin-left: -14px;
+}
+.stepNo{
+	margin-left: 0;
+}
+.mat-card{
+	color: #989a9c !important;
+}
+.mat-checkbox-frame {
+    border-color: #989a9c !important;
+}
+.tabcenter .mat-tab-header{
+	align-self: center;
+}
+.cardPromo{
+	width: 90%;
+}
+.imgPromo{
+	 margin: 5%;
+	 max-height: 120px;
+}
+.btnSalvarPromo{
+	padding-top: 5%;
+}
+.btnDrop{
+	min-width: 35px;
+}
+.imgModelo{
+	margin: 1%;
+    max-height: 200px;
+    max-width: 200px;
+    width: auto;
+    height: auto;
+}
+.cardModelo{
+	width: 200px;
+    height: 200px;
+	padding-left: 7%;
+}
+.btnHideModel{
+	min-width: 18px !important;
+}
+.topUpdadePro{
+	padding: 1%;
+}
+.toUpdateTop{
+	padding-top: 2%;
+    padding-left: 2%;
+}
+.mat-menu-item{
+	font-size: 14px !important;
+}
+.mat-menu-content{
+	padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+.dealer-space{
+	margin-top: 2%;
+}
+.dealer-btn-retribuir{
+	margin-right: 10%;
+    margin-bottom: 10%;
+}
+.btnSearch-model{
+	padding-top: 1%;
+	padding-left: 9%;
+}
+
+
+@mixin addToTheme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+
+  .color-border-default {
+	  border: 1px solid mat-color($primary);
+  }
+
+  .black-color {
+	  color: #000;	
+  }
+
+  .selectedcar {
+	  $shadow-color: mat-color($primary, 100);
+
+    -webkit-box-shadow:inset 0px 0px 0px 10px $shadow-color;
+      -moz-box-shadow:inset 0px 0px 0px 10px  $shadow-color;
+      box-shadow:inset 0px 0px 0px 10px $shadow-color !important;
+    background-color: mat-color($primary, 50);
+  }
+
+  	md-card-header {
+  		background-color: mat-color($primary);
+	}
+
+	.concessionaria {
+		background-color:mat-color($primary);
+	}
+
+	li::before .news{
+		color: mat-color($primary);
+	}
+
+	.icone {
+		background-color: mat-color($primary);
+		color: #fff;
+	}
+
+	.icon {
+		color: mat-color($primary);
+	}
+
+	.color-stepper{
+		fill: mat-color($primary);
+	}
+
+	
+	.line-stepper{
+		stroke:mat-color($primary);
+		stroke-width: 4;
+	}
+
+	.mat-checkbox-anim-unchecked-checked .mat-checkbox-background{
+		background-color: mat-color($primary) !important;
+	}
+	.mat-radio-inner-circle {
+    	background-color: mat-color($primary) !important;
+	}
+	.mat-radio-checked .mat-radio-outer-circle{
+		border-color: mat-color($primary) !important;
+	}
+
+}
+
+
+
+.renault{
+     @include angular-material-theme($theme-renault);
+	 @include addToTheme($theme-renault);
+	.logo {
+		background: url("/assets/images/ferrari.jpg") no-repeat;
+		background-size:contain;
+		width: 70%; 
+		height: 70%; 
+		position: absolute;
+	    top: 8px;
+	    right: 16px;
+	    font-size: 18px;
+	}
+
+	#bradge {
+		background: url("/assets/images/logo_1.png") no-repeat;
+		margin-top: 3%;
+	}
+	//BACKGROUND LOGIN
+	#logo-theme{
+		background: url("/assets/images/background_login-nissan.jpg") no-repeat;
+	}
+	//LOGO LOGIN
+	#logo-login{
+		background: url("/assets/images/logo_1.png") no-repeat;
+	}
+
+	md-card-header {
+  		color: rgba(0, 0, 0, 0.87);
+	}
+
+	.concessionaria {
+		color: rgba(0, 0, 0, 0.87);
+	}
+
+
+}
+.md-primary {
+	background-color: #3f51b5;
+	color: white;
+}
+
+.nissan {
+	@include angular-material-theme($theme-nissan);
+	@include addToTheme($theme-nissan);
+  
+  	.logo {
+		background: url("/assets/images/audi.jpg") no-repeat;
+		background-size:contain;
+		width: 70%; 
+		height: 70%; 
+		position: absolute;
+	    top: 8px;
+	    right: 16px;
+	    font-size: 18px;
+	}
+
+	#bradge {
+		background: url('/assets/images/logo_1-nissan.png') no-repeat;
+		margin-top: 3%;
+	}
+	//BACKGROUND LOGIN
+	#logo-theme{
+		background: url("/assets/images/background_login-nissan.jpg") no-repeat;
+	}
+	//LOGO LOGIN
+	#logo-login{
+		background: url('/assets/images/logo_1-nissan.png') no-repeat;
+	}
+
+	.mat-input-placeholder {
+		color: #ccc;
+	}
+
+	.mat-input-underline {
+         border-color: #ccc !important;
+     }
+
+	md-card-header {
+		color: white;
+	}
+
+	.concessionaria {
+		color: white;
+	}
+
+}
+
+  
+
+
+
+.rci {
+  @include angular-material-theme($theme-rci);
+  @include addToTheme($theme-rci);
+  	.logo {
+		background: url("/assets/images/fusca.jpg") no-repeat;
+		background-size:contain;
+		width: 70%; 
+		height: 70%; 
+		position: absolute;
+	    top: 8px;
+	    right: 16px;
+	    font-size: 18px;
+	}
+
+	#bradge {
+		background: url('/assets/images/logo_rci.png') no-repeat;
+		background-size: cover;
+	}
+	//BACKGROUND LOGIN
+	#logo-theme{
+		background: url("/assets/images/background_login-nissan.jpg") no-repeat;
+	}
+	//LOGO LOGIN
+	#logo-login{
+		background: url('/assets/images/logo_rci.png') no-repeat;
+	}	
+
+	#secondColor {
+		background-color: #282832;
+		color: white;
+	}
+
+	md-card-header {
+  		color: rgba(255, 255, 255, 0.87);
+	}
+
+	.concessionaria {
+		color: rgba(255, 255, 255, 0.87);
+	}
+
+
+}
+
+
+.divButtonBigLeft{
+	max-width: 130px;
+	min-width: 130px;
+
+}
+
+
+.divButtonBigRight{
+	
+	max-width: 130px;
+	min-width: 130px;
+}
+  
+
+.fontblack{
+	color: #000;
+}
+.miniicon{
+	font-size: 12px;
+}
+carselect{
+	min-width: 100%;
+}
+listversion {
+	min-width: 100%;
+}
+
+
+//Resolvendo o problema do calendario que ficava com o fundo transparente
+.mat-calendar {
+	background-color: white
+}
+//Resolvendo o problema do dialog que ficava com o fundo transparente
+.mat-dialog-container{
+	background-color: white
+}
+
+.font-small{
+	font-size: small;
+}
+
+//BACKGROUND LOGIN
+#logo-theme{
+	background-size: cover !important;
+	height: 510px;
+}
+
+.mat-menu-panel{
+	max-width: initial !important;
+}

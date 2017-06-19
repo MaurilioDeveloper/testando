@@ -1,0 +1,285 @@
+<div fxFlex.xs="100%" fxFlex.gt-sm="100%" fxLayoutAlign="center center" class="spaceCard" fxLayoutWrap>
+    
+    <md-card fxFlex.gt-sm="70%" fxFlex.xs="100%" [ngStyle.xs]="{'padding-top':'10px'}">
+        <div class="spaceCard" fxLayout="row" fxLayoutAlign="center center" fxFlex.xs="100%" fxFlex.lg="100%">
+            <!--<md-card fxFlex.gt-sm="100%" fxFlex.gt-sm="100%" class="no-border">-->
+                <!--<div fxFlex.xs="100%" fxFlex.gt-sm="100%">-->
+                <!--<md-card-content>-->
+                    <table class="table table-bordered" [ngStyle]="{'font-size':'12px'}">
+                        <thead>
+                        <tr class="concessionaria">
+                            <th [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+                                VENDEDOR
+                            </th>
+                            <th [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+                                PROPOSTA
+                            </th>
+                            <th fxHide.xs="true" [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+                                PROPOSTA ADP Nº
+                            </th>
+                            <th [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+                                CPF/CNPJ
+                            </th>
+                            <th fxHide.xs="true" [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+                                NOME CLIENTE
+                            </th>
+                            <th fxHide.xs="true" [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+                                STATUS
+                            </th>
+                            <th fxHide.xs="true" [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+                                DATA VALIDADE
+                            </th>
+                            <th fxHide.xs="true" [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+                                MODELO
+                            </th>
+                            <th fxHide.xs="true" [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+                                MONTANTE FINANCIADO
+                            </th>
+                            <th fxHide.xs="true" [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+                                TABELA
+                            </th>
+                            <th [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr [ngStyle]="{'text-align': 'center'}">
+                                <td [ngStyle]="{'vertical-align': 'middle'}">{{teste}}</td>
+                                <td [ngStyle]="{'vertical-align': 'middle'}">{{teste}}</td>
+                                <td fxHide.xs="true" [ngStyle]="{'vertical-align': 'middle'}">{{teste}}</td>
+                                <td fxHide.xs="true"[ngStyle]="{'vertical-align': 'middle'}">{{teste}}</td>
+                                <td fxHide.xs="true"[ngStyle]="{'vertical-align': 'middle'}">{{teste}}</td>
+                                <td fxHide.xs="true"[ngStyle]="{'vertical-align': 'middle'}">{{teste}}</td>
+                                <td fxHide.xs="true" [ngStyle]="{'vertical-align': 'middle'}">{{teste}}</td>
+                                <td fxHide.xs="true"[ngStyle]="{'vertical-align': 'middle'}">{{teste}}</td>
+                                <td fxHide.xs="true" [ngStyle]="{'vertical-align': 'middle'}">{{teste}}</td>
+                                <td [ngStyle]="{'vertical-align': 'middle'}">{{teste}}</td>
+                                <td [ngStyle]="{'vertical-align': 'middle'}"><a (click)="hideDealer()">Retribuir</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                <!--</md-card-content>-->
+                <!--</div>-->
+            <!--</md-card>-->
+        </div>
+    </md-card>
+
+    <md-card fxFlex.gt-sm="70%" fxFlex.xs="100%" class="dealer-space" *ngIf="hide==true"> 
+        <div fxLayout="column" [ngStyle]="{'padding-top':'3%','padding-left': '2%'}">
+            <div>
+                <div fxLayout="row">
+                    <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Proposta:</p>
+                    <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                    {{teste}}
+                    </section>
+                </div>
+                <div fxLayout="row">
+                    <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Proposta ADP N°:</p>
+                    <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                    {{teste}}
+                    </section>
+                </div>
+                <div fxLayout="row">
+                    <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">CPF / CNPJ:</p>
+                    <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                    {{teste}}
+                    </section>
+                </div>
+                <div fxLayout="row">
+                    <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Nome Cliente:</p>
+                    <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                    {{teste}}
+                    </section>
+                </div>
+                <div fxLayout="row">
+                    <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Status:</p>
+                    <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                    {{teste}}
+                    </section>
+                </div>
+                <div fxLayout="row">
+                    <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Data Validade:</p>
+                    <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                    {{teste}}
+                    </section>
+                </div>
+                <div fxLayout="row">
+                    <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Modelo:</p>
+                    <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                    {{teste}}
+                    </section>
+                </div>
+                <div fxLayout="row">
+                    <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Montante Financiado:</p>
+                    <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                    {{teste}}
+                    </section>
+                </div>
+                <div fxLayout="row">
+                    <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Tabela:</p>
+                    <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                    {{teste}}
+                    </section>
+                </div>
+            </div>
+     
+            <div fxLayout="column" [ngStyle]="{'padding-top':'5%','padding-left': '2%'}">
+                <div>
+                    <div fxLayout="row">
+                        <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Concessionária anterior:</p>
+                        <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                        {{teste}}
+                        </section>
+                    </div>
+                    <div fxLayout="row">
+                        <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%" [ngStyle]="{'margin-top':'15px'}">Nova Concessionária:</p>
+                        <section fxFlex.gt-sm="60%" fxFlex.xs="50%" >
+                        <md-select class="dealerClass" fxFlex.gt-sm="70%">
+                        <md-option *ngFor="let conce of conces" [value]="conce.value">
+                        {{ conce.viewValue }}
+                        </md-option>
+                        </md-select>
+                        </section>
+                    </div>
+                    <div fxLayout="row">
+                        <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%" [ngStyle]="{'margin-top':'15px'}">Vendedor:</p>
+                        <section fxFlex.gt-sm="60%" fxFlex.xs="50%">
+                        <md-select fxFlex.gt-sm="70%">
+                        <md-option *ngFor="let food of foods" [value]="food.value">
+                        {{ food.viewValue }}
+                        </md-option>
+                        </md-select>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="end">
+                    <div fxFlex.gt-sm="15%" fxFlex.xs="100%">
+                    <button md-raised-button 
+                    [ngStyle]="{'margin-right':'20%','margin-bottom':'20%','margin-top':'20%'}" 
+                    fxFlex.xs="100%" color="primary">Retribuir</button>
+                    </div>
+            </div>
+        </div>
+    </md-card>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    <md-card fxFlex.gt-sm="60%" fxFlex.xs="100%" class="dealer-space">  
+        <div fxLayout="column" [ngStyle]="{'padding-top':'3%','padding-left': '2%'}">
+                <div>
+                    <div fxLayout="row">
+                        <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Proposta:</p>
+                        <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                            {{teste}}
+                        </section>
+                    </div>
+                    <div fxLayout="row">
+                        <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Proposta ADP N°:</p>
+                        <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                            {{teste}}
+                        </section>
+                    </div>
+                    <div fxLayout="row">
+                        <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">CPF / CNPJ:</p>
+                        <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                            {{teste}}
+                        </section>
+                    </div>
+                    <div fxLayout="row">
+                        <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Nome Cliente:</p>
+                        <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                            {{teste}}
+                        </section>
+                    </div>
+                    <div fxLayout="row">
+                        <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Status:</p>
+                        <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                            {{teste}}
+                        </section>
+                    </div>
+                    <div fxLayout="row">
+                        <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Data Validade:</p>
+                        <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                            {{teste}}
+                        </section>
+                    </div>
+                    <div fxLayout="row">
+                        <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Modelo:</p>
+                        <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                            {{teste}}
+                        </section>
+                    </div>
+                    <div fxLayout="row">
+                        <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Montante Financiado:</p>
+                        <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                            {{teste}}
+                        </section>
+                    </div>
+                    <div fxLayout="row">
+                        <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Tabela:</p>
+                        <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                            {{teste}}
+                        </section>
+                    </div>
+                </div>
+        </div>
+
+        <div fxLayout="column" [ngStyle]="{'padding-top':'5%','padding-left': '2%'}">
+            <div>
+                <div fxLayout="row">
+                    <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%">Concessionária anterior:</p>
+                    <section fxFlex.gt-sm="50%" fxFlex.xs="50%">
+                        {{teste}}
+                    </section>
+                </div>
+                <div fxLayout="row">
+                    <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%" [ngStyle]="{'margin-top':'15px'}">Nova Concessionária:</p>
+                    <section fxFlex.gt-sm="60%" fxFlex.xs="50%" >
+                        <md-select class="dealerClass" fxFlex.gt-sm="70%">
+                            <md-option *ngFor="let conce of conces" [value]="conce.value">
+                            {{ conce.viewValue }}
+                            </md-option>
+                        </md-select>
+                    </section>
+                </div>
+                <div fxLayout="row">
+                    <p [ngClass]="fonte" fxFlex.gt-sm="40%" fxFlex.xs="50%" [ngStyle]="{'margin-top':'15px'}">Vendedor:</p>
+                    <section fxFlex.gt-sm="60%" fxFlex.xs="50%">
+                        <md-select fxFlex.gt-sm="70%">
+                            <md-option *ngFor="let food of foods" [value]="food.value">
+                            {{ food.viewValue }}
+                            </md-option>
+                        </md-select>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="end">
+            <div fxFlex.gt-sm="15%" fxFlex.xs="100%">
+                <button md-raised-button 
+                        [ngStyle]="{'margin-right':'20%','margin-bottom':'20%','margin-top':'20%'}" 
+                        fxFlex.xs="100%" color="primary">Retribuir</button>
+            </div>
+        </div>-->
+
+
+    

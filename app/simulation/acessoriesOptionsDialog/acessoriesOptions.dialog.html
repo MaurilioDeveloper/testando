@@ -1,0 +1,48 @@
+<div fxLayoutWrap fxLayoutAlign="start none" class="space-component" fxFlex.gt-sm="100%">
+
+    <div fxLayout="row">
+        <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%">
+            <div fxFlex.xs="100%" fxFlex.sm="30%" fxFlex.gt-sm="30%">
+                <img [src]="simulation.car.url" style="width:42%;">
+            </div>
+            <div fxFlex.xs="100%" fxFlex.sm="70%" fxFlex.gt-sm="70%">
+                <b class="textbig"> {{simulation.car.description | uppercase}} </b>
+                <b>Modelo selecionado</b>
+                <p class="textsmal"> {{simulation.car.version.description}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.gt-sm="100%" fxLayout="row">
+        <md-input-container>
+            <input mdInput ngControl placeholder="Valor do veiculo" type="number" [(ngModel)]="simulation.car.version.price.amount" #name="ngModel"
+                name="valor" />
+        </md-input-container>
+    </div>
+
+    <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.gt-sm="50%" style="border-right:2px solid">
+        <div >
+            <b> Opcionais</b><br>
+        </div>
+        <div  *ngFor="let option of options">
+            <div fxFlex.xs="50%" fxFlex.sm="50%" fxFlex.gt-sm="50%" >
+              <md-checkbox class="example-margin" 
+                    (change)="updateCheckedOptions(option, $event)">{{option.description}}</md-checkbox> 
+
+            
+            </div>
+
+            <div fxFlex.xs="50%" fxFlex.sm="50%" fxFlex.gt-sm="50%" >
+                {{option.amount}}
+            </div>
+        </div>
+    </div>
+
+    <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.gt-sm="50%" style="border-right:2px solid">
+        <b> Acessórios</b>
+
+    </div>
+
+
+
+</div>

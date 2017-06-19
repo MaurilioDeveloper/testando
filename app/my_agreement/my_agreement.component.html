@@ -1,0 +1,168 @@
+
+<div class="" fxFlex="100">
+	<div fxLayoutAlign="center center" class="spaceCard">
+		<md-card fxFlex.gt-sm="60%" fxFlex.xs="100%">
+			<md-card-header id="card-menu-proposta">
+				<span>Minhas Propostas</span>
+			</md-card-header> 
+
+
+			<md-card-content class="layouts">
+				<form>
+					<div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around stretch" class="space-component">
+					
+						<md-input-container fxFlex.xs="100%" fxFlex.gt-sm="45%">
+							<input mdInput placeholder="Número da proposta" name="idDossier" [(ngModel)]="filter.idDossier">
+						</md-input-container>
+
+						<md-input-container fxFlex.xs="100%" fxFlex.gt-sm="45%">
+							<input mdInput placeholder="Proposta ADP Nº" name="adp" [(ngModel)]="filter.adp">
+						</md-input-container>
+
+						<md-select placeholder="Tipo Cliente" fxFlex.xs="100%" fxFlex.gt-sm="45%" name="typePerson" [(ngModel)]="filter.typePerson">
+							<md-option *ngFor="let personType of listPersonType" [value]="personType.name" >
+								{{ personType.description }}
+							</md-option>
+						</md-select>
+
+						<md-input-container *ngIf="filter.typePerson == 'PF'" fxFlex.xs="100%" fxFlex.gt-sm="45%">
+							<input mdInput type="text" placeholder="CPF" omegamask="999.999.999-99" name="cpf" [(ngModel)]="filter.cpfCnpj">
+						</md-input-container>
+
+						<md-input-container *ngIf="filter.typePerson == 'PJ'" fxFlex.xs="100%" fxFlex.gt-sm="45%" >
+							<input mdInput type="text" placeholder="CNPJ" omegamask="99.999.999/9999-99" name="cnpj" [(ngModel)]="filter.cpfCnpj">
+						</md-input-container>
+
+						<md-input-container fxFlex.xs="100%" fxFlex.gt-sm="45%" >
+							<input mdInput placeholder="Nome" name="nameClient" [(ngModel)]="filter.nameClient">
+						</md-input-container>
+
+						<md-select placeholder="Status da proposta" fxFlex.xs="100%" fxFlex.gt-sm="45%" name="proposedStatus" [(ngModel)]="filter.proposedStatus">
+							<md-option *ngFor="let dossierStatus of listDossierStatus" [value]="dossierStatus.dossierStatusId">
+								{{ dossierStatus.description }}
+							</md-option>
+						</md-select>
+						
+						<md-select placeholder="Tipo de venda" fxFlex.xs="100%" fxFlex.gt-sm="45%" name="saleTypeId" [(ngModel)]="filter.saleTypeId">
+							<md-option *ngFor="let saleType of listSaleType" [value]="saleType.saleTypeId" >
+								{{ saleType.description }}
+							</md-option>
+						</md-select>
+
+						<div fxFlex.xs="100%" fxFlex.gt-sm="45%" fxLayoutWrap fxLayoutAlign="space-around stretch">
+							
+							<md-input-container fxFlex.gt-sm="45%" fxFlex.xs="100%" >
+								<input mdInput [mdDatepicker]="picker" placeholder="Data Criação Inicial" name="dateCreationInit" [(ngModel)]="filter.dateCreationInit">
+								<button mdSuffix [mdDatepickerToggle]="picker"></button>
+							</md-input-container>
+							<md-datepicker #picker></md-datepicker>
+
+							<md-input-container fxFlex.gt-sm="45%" fxFlex.xs="100%">
+								<input mdInput [mdDatepicker]="picker2" placeholder="Data Criação Final" name="dateCreationEnd" [(ngModel)]="filter.dateCreationEnd">
+								<button mdSuffix [mdDatepickerToggle]="picker2"></button>
+							</md-input-container>
+							<md-datepicker #picker2></md-datepicker>
+
+						</div>
+
+						<div fxFlex.xs="100%" fxFlex.gt-sm="45%" fxLayoutWrap fxLayoutAlign="space-around stretch">
+							<md-input-container fxFlex.gt-sm="45%" fxFlex.xs="100%">
+								<input mdInput [mdDatepicker]="picker3" placeholder="Data Validade Inicial" name="dateExpirationInit" [(ngModel)]="filter.dateExpirationInit">
+									<button mdSuffix [mdDatepickerToggle]="picker3"></button>
+							</md-input-container>
+
+							<md-datepicker #picker3></md-datepicker>
+
+							<md-input-container fxFlex.gt-sm="45%" fxFlex.xs="100%">
+								<input mdInput [mdDatepicker]="picker4" placeholder="Data Validade Final" name="dateExpirationEnd" [(ngModel)]="filter.dateExpirationEnd">
+									<button mdSuffix [mdDatepickerToggle]="picker4"></button>
+							</md-input-container>
+
+							<md-datepicker #picker4></md-datepicker>
+						</div>
+
+						<md-select placeholder="Concessionária" fxFlex.xs="100%" fxFlex.gt-sm="45%" name="dealership" [(ngModel)]="filter.dealership" (ngModelChange)="loadSalesman(filter.dealership)">
+							<md-option *ngFor="let structure of listStructure" [value]="structure.structureId">
+								{{ structure.description }}
+							</md-option>
+						</md-select>
+
+						<md-select placeholder="Vendedor" *ngIf="filter.dealership != null" fxFlex.xs="100%" fxFlex.gt-sm="45%" name="salesman" [(ngModel)]="filter.salesman">
+							<md-option *ngFor="let salesman of listSalesman" [value]="salesman.userId" >
+								{{ salesman.name }}
+							</md-option>
+						</md-select>
+                    	<md-checkbox fxFlex.gt-sm="45%" fxFlex.xs="100%" [(ngModel)]="filter.taxTc" name="taxTc">Insenção TC</md-checkbox>
+					</div>
+			
+					<!--BUTTONS-->
+					<div fxLayout="row" fxLayoutAlign="end none"  fxLayoutWrap  fxLayoutGap.gt-sm="3%">
+						<div fxFlex.gt-sm="20%" fxFlex.xs="100%">
+							<button fxFlex.xs="100%" [ngStyle.xs]="{'margin-top.px':20}"[ngStyle.gt-sm]="{'margin-top.px':20}" (click)="clearMyAgreement()" md-raised-button color="primary">Redefinir</button>
+						</div>
+						<div fxFlex.gt-sm="20%" fxFlex.xs="100%">
+							<button fxFlex.xs="100%" [ngStyle.xs]="{'margin-top.px':5}" [ngStyle.gt-sm]="{'margin-top.px':20}"  (click)="consult(filter)" md-raised-button color="primary">Procurar</button>
+						</div>
+					</div>
+
+				</form>
+			</md-card-content>
+		</md-card>
+	</div>
+	<div class="spaceCard" fxLayout="row" fxLayoutAlign="center center" *ngIf="showConsult">
+		<md-card fxFlex.gt-sm="70" fxFlex="100">
+			<md-card-content  [ngStyle]="{'padding': '1%'}">
+				<table class="table table-bordered">
+					<thead>
+						<tr class="concessionaria">
+							<th fxHide.xs="true" [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+								VENDEDOR
+							</th>
+							<th fxHide.xs="true" [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+								TIPO DE VENDA
+							</th>
+							<th [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+								PROPOSTA
+							</th>
+							<th fxHide.xs="true" [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+								PROPOSTA ADP Nº
+							</th>
+							<th [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+								CPF/CNPJ
+							</th>
+							<th fxHide.xs="true" [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+								NOME CLIENTE
+							</th>
+							<th [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+								STATUS
+							</th>
+							<th fxHide.xs="true" [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+								DATA VALIDADE
+							</th>
+							<th fxHide.xs="true" [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+								MODELO
+							</th>
+							<th [ngStyle]="{'text-align': 'center','vertical-align': 'middle'}">
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr [ngStyle]="{'text-align': 'center'}" *ngFor="let dados of listDossiers">
+							<td fxHide.xs="true" [ngStyle]="{'vertical-align': 'middle'}">{{dados.nameSalesman}}</td>
+							<td fxHide.xs="true" [ngStyle]="{'vertical-align': 'middle'}">{{dados.saleType}}</td>
+							<td [ngStyle]="{'vertical-align': 'middle'}">{{dados.numDossier}}</td>
+							<td fxHide.xs="true" [ngStyle]="{'vertical-align': 'middle'}">{{dados.adp}}</td>
+							<td [ngStyle]="{'vertical-align': 'middle'}" *ngIf="dados.cpfCnpj.length === 11" >{{dados.cpfCnpj | cpfMask}}</td>
+							<td [ngStyle]="{'vertical-align': 'middle'}" *ngIf="dados.cpfCnpj.length > 11">{{dados.cpfCnpj | cnpjMask}}</td>
+							<td fxHide.xs="true" [ngStyle]="{'vertical-align': 'middle'}">{{dados.nameClient}}</td>
+							<td [ngStyle]="{'vertical-align': 'middle'}">{{dados.status}}</td>
+							<td fxHide.xs="true" [ngStyle]="{'vertical-align': 'middle'}">{{dados.expirationDate | date : 'dd-MM-yyyy HH:mm:ss'}}</td>
+							<td fxHide.xs="true" [ngStyle]="{'vertical-align': 'middle'}">{{dados.vehicleModel}}</td>
+							<td [ngStyle]="{'vertical-align': 'middle'}"><md-icon>play_circle_outline</md-icon></td>
+						</tr>
+					</tbody>
+				</table>
+			</md-card-content>
+		</md-card>
+	</div>
+</div>
